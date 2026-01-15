@@ -9,7 +9,7 @@ export async function onRequest({ params, request, env }) {
   const data = JSON.parse(raw);
   const ua = request.headers.get("user-agent") || "";
 
-  const isBot = /facebookexternalhit|twitterbot|slackbot|discordbot|whatsapp|telegram/i.test(ua);
+  const isBot = /facebookexternalhit|twitterbot|slackbot|discordbot|whatsapp|telegram|WhatsApp/i.test(ua);
 
   // Serve metadata to bots
   if (isBot) {
@@ -48,3 +48,4 @@ function escape(str = "") {
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[s])
   );
 }
+
