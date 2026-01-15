@@ -2,11 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Create Share Link</title>
+  <title>Share link created</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; }
+    .link-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f5f5f5;
+      border-radius: 6px;
+      word-break: break-all;
+    }
+    button {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Create a Share Link</h1>
 
+  <h1>For Posting Media</h1>
+
+  <!-- Your original form (optional, but nice UX) -->
   <form method="POST" action="/submit">
     <label>
       Original article URL<br>
@@ -24,11 +39,31 @@
     </label><br><br>
 
     <label>
-      Image URL (1200×630 recommended)<br>
+      Image URL<br>
       <input name="image" required style="width: 400px">
     </label><br><br>
 
-    <button type="submit">Generate link</button>
+    <button type="submit">Create share link</button>
   </form>
+
+  <!-- Success output -->
+  <div id="result"></div>
+
+  <script>
+    const id = new URLSearchParams(window.location.search).get("id");
+    if (id) {
+      const url = `${location.origin}/s/${id}`;
+      document.getElementById("result").innerHTML = `
+        <h2>Share link</h2>
+        <div class="link-box">
+          <a href="${url}" target="_blank">${url}</a>
+        </div>
+        <button onclick="navigator.clipboard.writeText('${url}')">
+          Copy link
+        </button>
+      `;
+    }
+  </script>
+
 </body>
 </html>
