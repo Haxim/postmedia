@@ -22,6 +22,7 @@ export async function onRequest({ params, request, env }) {
   <meta property="og:title" content="${escape(data.title)}">
   <meta property="og:description" content="${escape(data.description)}">
   <meta property="og:image" content="${data.image}">
+  <meta property="og:image:secure_url" content="${data.image}">
   <meta property="og:url" content="${request.url}">
   <meta property="og:type" content="article">
 
@@ -48,4 +49,5 @@ function escape(str = "") {
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[s])
   );
 }
+
 
