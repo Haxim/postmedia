@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Create Share Link</title>
+</head>
+<body>
+  <h1>Create a Share Link</h1>
+
+  <form method="POST" action="/submit">
+    <label>
+      Original article URL<br>
+      <input name="target_url" required style="width: 400px">
+    </label><br><br>
+
+    <label>
+      Custom title<br>
+      <input name="title" required style="width: 400px">
+    </label><br><br>
+
+    <label>
+      Description<br>
+      <textarea name="description" required style="width: 400px"></textarea>
+    </label><br><br>
+
+    <label>
+      Image URL (1200×630 recommended)<br>
+      <input name="image" required style="width: 400px">
+    </label><br><br>
+
+    <button type="submit">Generate link</button>
+  </form>
+</body>
+</html>
